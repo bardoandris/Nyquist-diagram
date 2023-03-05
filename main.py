@@ -4,7 +4,10 @@ from scipy import signal
 import sys
 import tkinter as tk
 
-def input_coeff(counter_array, denominator_array):
+TK_widgets = {}
+
+
+def input_coeff():
     results = []
     while True:
 
@@ -21,17 +24,17 @@ def input_coeff(counter_array, denominator_array):
     return
 
 def main():
-    rootwindow = tk.Tk()
-    counter_label = tk.Label(text="Transfer function counter coefficients")
-    counter_label.pack()
-    denominator_label = tk.Label(text="Transfer function denominator coefficients")
-    denominator_label.pack()
-    counter_textbox = tk.Entry()
-    counter_textbox.pack()
-    denominator_textbox = tk.Entry()
-    denominator_textbox.pack()
-    compute_button = tk.Button(command=lambda: input_coeff(counter_textbox.get(),denominator_textbox.get()))
-    rootwindow.mainloop()
+    TK_widgets["rootwindow"] = tk.Tk()
+    TK_widgets["counter_label"]  = tk.Label(text="Transfer function counter coefficients")
+    TK_widgets["counter_label"].pack()
+    TK_widgets["denominator_label"] = tk.Label(text="Transfer function denominator coefficients")
+    TK_widgets["denominator_label"].pack()
+    TK_widgets["counter_textbox"] = tk.Entry()
+    TK_widgets["counter_textbox"].pack()
+    TK_widgets["denominator_textbox"] = tk.Entry()
+    TK_widgets["denominator_label"].pack()
+    TK_widgets["go_button"] = tk.Button(command=input_coeff)
+    TK_widgets["rootwindow"].mainloop()
     pass
 
 
